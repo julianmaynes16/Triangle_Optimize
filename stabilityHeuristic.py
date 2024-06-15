@@ -33,7 +33,7 @@ import itertools
 # make triangles with legs on ground
 # stability =
 
-theta = 0.20
+theta = -0.20
 
 triangles =  [
 ((1,1,1),(2,2,2),(1,3,4)),
@@ -124,18 +124,18 @@ for sequence in np_permutations:
     for leg in sequence:
         if leg == 0: 
             #get stability for remaining legs
-            stab_stat = getStability(l1, l2, l3,0.2)
+            stab_stat = getStability(l1, l2, l3,theta)
             #move leg 
-            l0 = matrix_multiply(l0, 0.2)
+            l0 = matrix_multiply(l0, theta)
         elif leg == 1:
-            stab_stat = getStability(l0, l2, l3,0.2)
-            l1 = matrix_multiply(l1, 0.2)
+            stab_stat = getStability(l0, l2, l3,theta)
+            l1 = matrix_multiply(l1, theta)
         elif leg == 2: 
-           stab_stat = getStability(l0, l1, l3,0.2)
-           l2 = matrix_multiply(l2, 0.2)
+           stab_stat = getStability(l0, l1, l3,theta)
+           l2 = matrix_multiply(l2, theta)
         else:
-            stab_stat = getStability(l0, l1, l2,0.2)
-            l3 = matrix_multiply(l3, 0.2)
+            stab_stat = getStability(l0, l1, l2,theta)
+            l3 = matrix_multiply(l3, theta)
         stab_list.append(stab_stat)
 
 print (np_permutations)
