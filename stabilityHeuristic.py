@@ -114,13 +114,14 @@ np_permutations = np.array(permutations)
 stab_list = []
 #print(np_permutations)
 #assuming front right = 0, 
-for sequences in np_permutations:
+for sequence in np_permutations:
     # 0 = front left, 1 = back left, 2 = front right, 3 = back right
     l0 = [-16.5, 23,0] # 0
     l1 = [-16.5, -23, 0] # 1
     l2 = [16.5, 23,0] # 2
     l3 = [16.5, -23.0,0] # 3
-    for leg in sequences:
+    stab_list.append(sequence)
+    for leg in sequence:
         if leg == 0: 
             #get stability for remaining legs
             stab_stat = getStability(l1, l2, l3,0.2)
